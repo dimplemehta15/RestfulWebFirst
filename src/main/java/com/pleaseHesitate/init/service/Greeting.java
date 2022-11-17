@@ -17,4 +17,12 @@ public class Greeting {
     {
         return Content.builder().id(counter++).name(String.format (hello , name)).build();
     }
+
+    @PostMapping("/greeting")
+    public Content greetings(@RequestParam (value="name", defaultValue = "World")String name)
+    {
+        return Content.builder().id(counter++)
+                .name(name)
+                .build();
+    }
 }
